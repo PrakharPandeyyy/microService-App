@@ -34,11 +34,13 @@ app.post("/posts", async (req, res) => {
 });
 
 app.post("/events", (req, res) => {
-  console.log("Received Event", req.body.type);
+  try {console.log("Received Event", req.body.type)}
+  catch (err) {
+    console.log(err.message);
+  }
   res.send({});
 });
 
 app.listen(4000, () => {
-  console.log("v55");
   console.log("Listening on 4000");
 });
