@@ -6,10 +6,13 @@ const PostCreate = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-
-    await axios.post("http://posts.com/posts", {
-      title,
-    });
+    try {
+      await axios.post("http://posts.com/posts/", {
+        title,
+      });
+    } catch (err) {
+      console.log(err);
+    }
 
     setTitle("");
   };

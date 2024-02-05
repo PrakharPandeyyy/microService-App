@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-depl
-
 spec:
   replicas: 1
   selector:
@@ -16,14 +15,12 @@ spec:
       containers:
         - name: client
           image: prakharpandeyyy/client:latest
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: client-srv
 spec:
-  # type: ClusterIP
   selector:
     app: client
   ports:
